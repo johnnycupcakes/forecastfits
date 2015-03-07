@@ -1,0 +1,71 @@
+header {
+	background: $primary-color;
+	@include background-image(url("/images/384d1add_3840x2400-e1406801278231.jpeg"));
+	background-position: center, center;
+	background-repeat: no-repeat;
+	text-align:center;
+	padding-top: .5em;
+
+	@include media($mediumish) {
+		padding-bottom:4em;
+		padding-top:2em;
+	}
+
+	@include media($largish) {
+		padding-bottom:5em;
+		padding-top:2em;
+		margin-bottom: 1.5em;
+	}
+
+	hr { 
+		text-align:center;
+		border-bottom: 2px solid white;
+		max-width: 25%;
+		margin-top: .5em;
+		margin-bottom: .5em;	
+	}
+
+	img {
+		max-width: 150px;
+		padding: 1.2em;
+		opacity: .9	;
+		@include media($mediumish) {
+			max-width: 220px;
+			padding: 1em;
+		}
+		@include media($largish) {
+			font-size: 1.3em;
+			max-width: 250px;
+			padding: 1em;
+		}
+	}
+
+	h2 {
+		color: black;
+		font-size: 1em;
+		@include media($mediumish) {
+			font-size: 1.2em;
+		}
+		@include media($largish) {
+			font-size: 1.3em;
+		}
+	}
+	
+	a {
+		text-decoration:none;
+		
+		.main-title {
+			margin:0;	
+			color: $black;
+			font-size: 2.5em;
+
+			@include media($mediumish) {
+				font-size: 3em;
+			}
+			@include media($largish) {
+				font-size: 4em;
+			}
+		}
+	}
+}
+

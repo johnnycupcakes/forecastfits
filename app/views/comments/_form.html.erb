@@ -1,0 +1,60 @@
+<div class="comment-list">
+  <% @location.comments.each do |comment| %>
+
+    <%=render partial: "comments/comment", locals: {comment: comment} %>
+
+      <% end %>
+</div>
+
+<% if user_signed_in? %>
+<div class="comment-form">
+  <h1>What are you wearing in this weather?</h1>
+  <%= form_for :comment, url: comment_url(id: @location), html: {class: 'submit-comment'} do |f| %>
+    <p class="comment-name">
+      <%=f.label :name %>
+        <br>
+        <%=f.text_field :commenter %>
+    </p>
+    <p class="comment-jacket">
+      <%=f.label :jacket %>
+        <br>
+        <%=f.text_field :jacket %>
+    </p>
+    <p class="comment-top">
+      <%=f.label :top %>
+        <br>
+        <%=f.text_field :top %>
+    </p>
+    <p class="comment-pants">
+      <%=f.label :pants %>
+        <br>
+        <%=f.text_field :pants %>
+    </p>
+    <p class="comment-shoes">
+      <%=f.label :shoes %>
+        <br>
+        <%=f.text_field :shoes %>
+    </p>
+    <p class="uploadcare-submit">
+    <%=f.label :picture %>
+      <br>
+      
+    <%= uploadcare_uploader_field :post, :file %>
+      <br>
+    </p>
+    <p class="comment-body">
+      <%=f.label :comment %>
+        <br>
+        <%=f.text_area :body %>
+    </p>
+    <p class="submit">
+      <%=f.submit 'Submit' %>
+    </p>
+    <% end %>
+</div>
+<% else %>
+<h2>Login or Sign-up to comment</h2>
+ <center><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</center>

@@ -1,0 +1,2 @@
+== README
+Forecast Fits is an application that uses the Wunderground API to display current forecast results in your area. This allows you to comment on your outfit by listing what you are wearing in a specific location. I used Ruby on Rails as well as SASS for the makeup of this application.

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= include_uploadcare_widget_from_cdn version: "1.5.5", min: true %>
+  <%= uploadcare_settings %>
+
+        <title>Forecast Fits</title>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+        <center>
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%=link_to 'Edit profile', edit_user_registration_path, :class=> 'navbar-link' %> |
+        <%=link_to "Logout", destroy_user_session_path, method: :delete, :class=> 'navbar-link' %>
+          <% else %>
+            <%=link_to "Sign up", new_user_registration_path, :class=> 'navbar-link' %> |
+              <%=link_to "Login", new_user_session_path, :class=> 'navbar-link' %>
+                <% end %>
+
+                  <p class="notice">
+                    <%=notice %>
+                  </p>
+                  <p class="alert">
+                    <%=alert %>
+                  </p>
+  </center>
+    </div>
+    <img src="/images/small-2137-3489992.png" alt="logo">
+      <h1 class="main-title">Forecast Fits</h1>
+    <hr>
+    <h2>Make sure the forecast fits what you're wearing.</h2>
+
+    <div class="wrapper">
+      <div class="location-page">
+
+        <div class="location-form">
+          <h1> Where are you? </h1>
+
+          <%=form_for :location, url: submit_url, html: {class: 'search-form'} do |f| %>
+
+            <p class="city-input">
+              <%=f.label :City %>
+                <%=f.text_field :city %>
+            </p>
+
+            <p class="state-input">
+              <%=f.label :State %>
+                <%=f.select :state, options_for_select(us_states, "CA") %>
+            </p>
+
+            <p class="submit">
+              <%=f.submit 'Search' %>
+            </p>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+
+  </header>
+
+
+  <%=yield %>
+
+    <footer>
+      <h5> Nic Boutte </h5>
+
+      <hr>
+
+      <a href="https://github.com/Nic510">
+        <img class="link-icons" src="/images/github-thumbnail.jpg">
+      </a>
+
+      <a href="www.linkedin.com/in/nicboutte/en">
+        <img class="link-icons" src="/images/linkedin-thumbnail.jpg">
+      </a>
+    </footer>
+
+</body>
+
+</html>

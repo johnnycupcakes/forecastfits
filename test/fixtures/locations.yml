@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  stste: MyString
+  created_at: 2015-02-16 13:10:18
+  updated_at: 2015-02-16 13:10:18
+
+two:
+  city: MyString
+  stste: MyString
+  created_at: 2015-02-16 13:10:18
+  updated_at: 2015-02-16 13:10:18
